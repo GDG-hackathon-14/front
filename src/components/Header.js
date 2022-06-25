@@ -3,7 +3,6 @@ import { BiChevronLeft } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 const CustomHeader = styled.header`
-  background-color: #e3f2fd;
   width: 100%;
   top: 0;
   left: 0;
