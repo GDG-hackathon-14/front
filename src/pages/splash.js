@@ -31,7 +31,7 @@ const Title = styled.h1`
 function Splash() {
   return (
     <Div>
-      <Title>야나야</Title>
+      <Title>야, 나야</Title>
     </Div>
   );
 }

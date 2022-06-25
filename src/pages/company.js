@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Container from "../components/Container";
 import MainContainer from "../components/MainContainer";
+import { useNavigate } from "react-router-dom";
 
 const CompanyImage = styled.img`
   max-width: 100px;
@@ -44,36 +45,55 @@ const NextButton = styled.div`
 `;
 
 function Company() {
+  const navigate = useNavigate();
+  const [company, setCompany] = useState();
+  const [name, setName] = useState();
+
+  const CompanyCotainers = ({ children, compId, compName }) => {
+    return (
+      <CompanyContainer
+        onClick={() => {
+          setCompany(compId);
+          setName(compName);
+        }}
+      >
+        {children}
+      </CompanyContainer>
+    );
+  };
+
   return (
     <Container>
       <Header title="뒤로가기" />
       <MainContainer>
         <div style={{ color: "#1565C0", fontWeight: "bold", fontSize: 20 }}>
-          야나야
+          야, 나야
         </div>
-        <div style={{ fontSize: 18 }}>회사를 선택해주세요</div>
+        <div style={{ fontSize: 18 }}>
+          {name ? name : "재직하는 회사를 선택해주세요"}
+        </div>
         <div style={{ marginTop: 20 }}>
           <CompanyBox>
-            <CompanyContainer>
+            <CompanyCotainers compId={1} compName={"당근마켓"}>
               <CompanyImage src="/images/carrot.png" />
               <CompanyName>당근마켓</CompanyName>
-            </CompanyContainer>
-            <CompanyContainer>
+            </CompanyCotainers>
+            <CompanyCotainers compId={2} compName={"마켓컬리"}>
               <CompanyImage src="/images/kurly.png" />
               <CompanyName>마켓컬리</CompanyName>
-            </CompanyContainer>
-            <CompanyContainer>
+            </CompanyCotainers>
+            <CompanyCotainers compId={3} compName={"오늘의집"}>
               <CompanyImage src="/images/house.png" />
               <CompanyName>오늘의집</CompanyName>
-            </CompanyContainer>
+            </CompanyCotainers>
           </CompanyBox>
 
           <CompanyBox>
-            <CompanyContainer>
+            <CompanyCotainers compId={4} compName={"긱플"}>
               <CompanyImage src="/images/gikple.png" />
               <CompanyName>긱플</CompanyName>
-            </CompanyContainer>
-            <CompanyContainer>
+            </CompanyCotainers>
+            <CompanyCotainers compId={5} compName={"한빛미디어"}>
               <div
                 style={{
                   width: "100px",
@@ -87,11 +107,11 @@ function Company() {
               </div>
 
               <CompanyName>한빛미디어</CompanyName>
-            </CompanyContainer>
-            <CompanyContainer>
+            </CompanyCotainers>
+            <CompanyCotainers compId={6} compName={"인프런"}>
               <CompanyImage src="/images/inflearn.png" />
               <CompanyName>인프런</CompanyName>
-            </CompanyContainer>
+            </CompanyCotainers>
           </CompanyBox>
         </div>
       </MainContainer>
@@ -104,7 +124,15 @@ function Company() {
           marginBottom: "20px",
         }}
       >
-        <NextButton onClick={() => {}}>다음으로</NextButton>
+        <NextButton
+          onClick={() => {
+            if (company) {
+              navigate("/write-form");
+            }
+          }}
+        >
+          다음으로
+        </NextButton>
       </div>
     </Container>
   );
