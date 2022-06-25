@@ -26,7 +26,7 @@ const Header = ({ title }) => {
       <BackButton onClick={() => navigate(-1)}>
         <BiChevronLeft size={30} />
       </BackButton>
-      <div>{title}</div>
+      <div style={{ fontWeight: "700" }}>{title}</div>
     </CustomHeader>
   );
 };
