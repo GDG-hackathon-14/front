@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/" element={<Main />}></Route>
           <Route path="/company" element={<Company />}></Route>
           <Route path="/qrcode" element={<Qrcode />}></Route>
-          <Route path="/write-form" element={<WriteForm />}></Route>
+          <Route path="/writeform" element={<WriteForm />}></Route>
           <Route path="/information" element={<Information />}></Route>
         </Routes>
       </BrowserRouter>
