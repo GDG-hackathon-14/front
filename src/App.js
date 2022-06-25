@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./pages/main";
 import Company from "./pages/company";
 import Qrcode from "./pages/qrcode";
+import WriteForm from "./pages/writeForm";
 
 const App = () => {
   return (
