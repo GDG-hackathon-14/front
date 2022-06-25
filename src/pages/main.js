@@ -47,6 +47,8 @@ const ButtonDiv = styled.div`
 
 function Main() {
   const [showSplash, setShowSplash] = useState(true);
+  const [code, setCode] = useState();
+
   useEffect(() => {
     setTimeout(() => {
       setShowSplash(false);
@@ -62,14 +64,15 @@ function Main() {
     //   });
 
     // 로그인 처리
-    const { memberId, memberCustomUrl } = {
-      memberId: "1",
-      memberCustomUrl: "1111",
-    };
-    window.localStorage.setItem("memberId", memberId);
-    if (memberCustomUrl) {
-      window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
-    }
+    // const { memberId, memberCustomUrl } = {
+    //   memberId: "1",
+    //   memberCustomUrl: "",
+    // };
+    // window.localStorage.setItem("memberId", memberId);
+    // if (memberCustomUrl) {
+    //   window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+    //   setCode(memberCustomUrl);
+    // }
   }, []);
 
   return (
@@ -85,12 +88,21 @@ function Main() {
       </TitleDiv>
       <ButtonDiv>
         <StartButton>
-          <Link
-            to="/company"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            시작하기
-          </Link>
+          {code ? (
+            <Link
+              to={`/information?code=${code}`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              내 정보 보기
+            </Link>
+          ) : (
+            <Link
+              to="/company"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              시작하기
+            </Link>
+          )}
         </StartButton>
       </ButtonDiv>
     </Div>

@@ -128,7 +128,7 @@ function Company() {
           onClick={() => {
             if (company) {
               navigate("/write-form");
-              window.localStorage.setItem("company", name);
+              window.localStorage.setItem("company", company);
             }
           }}
         >
