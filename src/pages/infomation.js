@@ -7,6 +7,7 @@ import MainContainer from "../components/MainContainer";
 import TextInput from "../components/TextInput";
 import OnelineInput from "../components/onelineInput";
 import EmailInput from "../components/EmailInput";
+import { useNavigate } from "react-router-dom";
 
 const PhotoDiv = styled.div`
   width: 100%;
@@ -38,7 +39,20 @@ const DividedLine = styled.div`
   margin: 20px 0;
 `;
 
+const NextButton = styled.div`
+  width: 90%;
+  border-radius: 10px;
+  background-color: #1565c0;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+`;
+
 function Information() {
+  const navigate = useNavigate();
   return (
     <div>
       <Header title="내 정보"></Header>
@@ -79,6 +93,25 @@ function Information() {
           <div>https://wwit.design/2022/05/28/trost/</div>
         </div>
       </MainContainer>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "20px",
+          position: "sticky",
+          bottom: "20px",
+        }}
+      >
+        <NextButton
+          onClick={() => {
+            navigate("/qrcode");
+          }}
+        >
+          QR 코드
+        </NextButton>
+      </div>
     </div>
   );
 }
