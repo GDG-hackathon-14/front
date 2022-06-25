@@ -2,19 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Container from "../components/Container";
-
-const Title = styled.h1`
-  color: white;
-  font-size: 30px;
-`;
-
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-`;
+import MainContainer from "../components/MainContainer";
 
 const CompanyImage = styled.img`
   width: 100px;
@@ -58,7 +46,7 @@ function Company() {
   return (
     <Container>
       <Header title="뒤로가기" />
-      <Main>
+      <MainContainer>
         <div style={{ color: "#1565C0", fontWeight: "bold", fontSize: 20 }}>
           야나야
         </div>
@@ -94,7 +82,7 @@ function Company() {
             </CompanyContainer>
           </CompanyBox>
         </div>
-      </Main>
+      </MainContainer>
       <div
         style={{
           width: "100%",

@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-const container = styled.div`
+const Container = styled.div`
   display: flex;
+  flex-direction: column;
   flex: 1;
   width: 100%;
-  padding: 0 20px;
+  padding: 20px;
 `;
 
 const MainContainer = ({ children }) => {
-  return <MainContainer>{children}</MainContainer>;
+  return <Container>{children}</Container>;
 };
 
 export default MainContainer;
