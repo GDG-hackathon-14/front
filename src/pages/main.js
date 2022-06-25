@@ -53,15 +53,29 @@ function Main() {
     setTimeout(() => {
       setShowSplash(false);
     }, 3500);
-    // fetch("")
-    //   .then((res) => res.json())
-    //   .then((response) => {
-    //     const { memberId, memberCustomUrl } = response;
-    //     window.localStorage.setItem("memberId", memberId);
-    //     if (memberCustomUrl) {
-    //       window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
-    //     }
-    //   });
+
+    fetch("http://localhost:8080/api/member/login", {
+      method: "post",
+      body: JSON.stringify({
+        email: "minah@nate.com",
+        password: "1234",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+        const { memberId, memberCustomUrl } = response;
+        window.localStorage.setItem("memberId", memberId);
+        if (memberCustomUrl) {
+          window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+        }
+      });
 
     // 로그인 처리
     // const { memberId, memberCustomUrl } = {
