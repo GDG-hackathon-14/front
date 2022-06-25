@@ -35,7 +35,6 @@ function Information() {
 
   return (
     <Container>
-      <Header title="뒤로가기" />
       <MainContainer>
         <div
           style={{
@@ -47,8 +46,8 @@ function Information() {
             flexDirection: "column",
           }}
         >
-          사용자의 정보입니다! 사용자의 정보입니다!사용자의 정보입니다!v
-          사용자의 정보입니다! 사용자의 정보입니다! 사용자의 정보입니다!
+          사용자의 정보입니다! 사용자의 정보입니다!사용자의 정보입니다! 사용자의
+          정보입니다! 사용자의 정보입니다! 사용자의 정보입니다!
         </div>
       </MainContainer>
     </Container>
