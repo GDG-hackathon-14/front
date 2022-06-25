@@ -50,7 +50,7 @@ function Qrcode() {
             <QRCode
               size={256}
               style={{ height: "200px", maxWidth: "100%", width: "100%" }}
-              value={`user?code=${code}`}
+              value={`http://172.20.10.8:3000/information?code=${code}`}
               viewBox={`0 0 256 256`}
             />
           )}
