@@ -145,7 +145,7 @@ function Information({ match }) {
         <NextButton
           onClick={() => {
             const code = window.localStorage.getItem("memberCustomUrl");
-            navigate(`/qrcode?code=${code}`);
+            navigate(`/qrcode`);
           }}
         >
           QR 코드

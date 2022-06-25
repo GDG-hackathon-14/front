@@ -25,7 +25,9 @@ const NextButton = styled.div`
 `;
 
 function Qrcode() {
-  const [code, userCode] = useState("dd");
+  const [code, userCode] = useState(
+    window.localStorage.getItem("memberCustomUrl")
+  );
   // useEffect(() => {
   //   fetch("")
   //     .then((res) => res.json())
