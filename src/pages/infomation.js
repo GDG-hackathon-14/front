@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import Container from "../components/Container";
-import QRCode from "react-qr-code";
 import MainContainer from "../components/MainContainer";
-import TextInput from "../components/TextInput";
-import OnelineInput from "../components/onelineInput";
-import EmailInput from "../components/EmailInput";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PhotoDiv = styled.div`
   width: 100%;
@@ -51,47 +46,79 @@ const NextButton = styled.div`
   font-weight: bold;
 `;
 
-function Information() {
+function Information({ match }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [data, setData] = useState({
+    compId: 1,
+    profileImageUrl: "myimage",
+    memberName: "dahye",
+    email: "test@nate.com",
+    phoneNumber: "01012341234",
+    gender: 0,
+    deptName: "IT개발팀",
+    address: "서울 강남구 테헤란로",
+    task: "프론트엔드",
+    position: "사원",
+    mbti: "ENFJ",
+    links: ["http://blog.naver.com/test", "https://brunch.co.kr"],
+    description: "안녕하세요",
+    memberCustomUrl: "abcd12345@@!#!",
+    hobby: "스케이트",
+    techSkill: "java",
+  });
+
+  useEffect(() => {
+    const code = location.search.split("=")[1];
+    fetch(`//${code}`)
+      .then((res) => res.json())
+      .then((response) => {});
+  }, [location]);
+
   return (
     <div>
       <Header title="내 정보"></Header>
       <MainContainer>
-        <Title>사진</Title>
-        <PhotoDiv>
-          <Photo></Photo>
-        </PhotoDiv>
+        {data && (
+          <>
+            <Title>사진</Title>
+            <PhotoDiv>
+              <Photo></Photo>
+            </PhotoDiv>
 
-        <div style={{ fontSize: "12px" }}>
-          <Title>한줄 설명</Title>
-          <div style={{ lineBreak: "pre-line" }}>
-            세계적인 유망주인 가비(바르셀로나)부터 이미 슈퍼스타가 된 엘링
-            홀란드(맨체스터 시티), 킬리안 음바페(파리 생제르맹) 등 수많은
-            선수들이 나열됐다. 29살인 선수 중 몸값 1위도 소개됐는데, 손흥민의
-            얼굴이 딱 등장했다.
-          </div>
-          <DividedLine />
-          <Title>이메일</Title>
-          <div>gakk@naver.com</div>
-          <Title>연락처</Title>
-          <div>010-0000-0000</div>
-          <Title>사는 곳</Title>
-          <div>경기도 시흥이 어쩌주 저쩌구 도시</div>
-          <DividedLine />
-          <Title>부서</Title>
-          <div>디자인 팀</div>
-          <Title>직무</Title>
-          <div>UX designer</div>
-          <Title>기술스택</Title>
-          <div>redux, redux-saga 두줄주둘 게이스 ㅎㅎㅎㅎㅎㅎㅎ ㄷ두릊두줄</div>
-          <DividedLine />
-          <Title>취미</Title>
-          <div>탁구, 게임 등등등....</div>
-          <Title>MBTI</Title>
-          <div>예시 문구 문구</div>
-          <Title>링크</Title>
-          <div>https://wwit.design/2022/05/28/trost/</div>
-        </div>
+            <div style={{ fontSize: "12px" }}>
+              <Title>한줄 설명</Title>
+              <div style={{ lineBreak: "pre-line" }}>{data.description}</div>
+              <DividedLine />
+              <Title>이메일</Title>
+              <div>{data.email}</div>
+              <Title>연락처</Title>
+              <div>{data.phoneNumber}</div>
+              <Title>사는 곳</Title>
+              <div>{data.address}</div>
+              <DividedLine />
+              <Title>부서</Title>
+              <div>{data.deptName}</div>
+              <Title>직급</Title>
+              <div>{data.position}</div>
+              <Title>직무</Title>
+              <div>{data.task}</div>
+              <Title>기술스택</Title>
+              <div>{data.techSkill}</div>
+              <DividedLine />
+              <Title>취미</Title>
+              <div>{data.hobby}</div>
+              <Title>MBTI</Title>
+              <div>{data.mbti}</div>
+              <Title>링크</Title>
+              {data.links.map((link) => (
+                <div>
+                  <a>{link}</a>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </MainContainer>
       <div
         style={{
