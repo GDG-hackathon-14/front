@@ -5,8 +5,9 @@ import Container from "../components/Container";
 import MainContainer from "../components/MainContainer";
 
 const CompanyImage = styled.img`
-  width: 100px;
-  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  padding: 20px;
 `;
 
 const CompanyContainer = styled.div`
@@ -54,31 +55,42 @@ function Company() {
         <div style={{ marginTop: 20 }}>
           <CompanyBox>
             <CompanyContainer>
-              <CompanyImage src="/images/kurly.png" />
+              <CompanyImage src="/images/carrot.png" />
               <CompanyName>당근마켓</CompanyName>
             </CompanyContainer>
             <CompanyContainer>
               <CompanyImage src="/images/kurly.png" />
-              <CompanyName>당근마켓</CompanyName>
+              <CompanyName>마켓컬리</CompanyName>
             </CompanyContainer>
             <CompanyContainer>
-              <CompanyImage src="/images/kurly.png" />
-              <CompanyName>당근마켓</CompanyName>
+              <CompanyImage src="/images/house.png" />
+              <CompanyName>오늘의집</CompanyName>
             </CompanyContainer>
           </CompanyBox>
 
           <CompanyBox>
             <CompanyContainer>
-              <CompanyImage src="/images/kurly.png" />
-              <CompanyName>당근마켓</CompanyName>
+              <CompanyImage src="/images/gikple.png" />
+              <CompanyName>긱플</CompanyName>
             </CompanyContainer>
             <CompanyContainer>
-              <CompanyImage src="/images/kurly.png" />
-              <CompanyName>당근마켓</CompanyName>
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <CompanyImage src="/images/hanbit.jpeg" />
+              </div>
+
+              <CompanyName>한빛미디어</CompanyName>
             </CompanyContainer>
             <CompanyContainer>
-              <CompanyImage src="/images/kurly.png" />
-              <CompanyName>당근마켓</CompanyName>
+              <CompanyImage src="/images/inflearn.png" />
+              <CompanyName>인프런</CompanyName>
             </CompanyContainer>
           </CompanyBox>
         </div>

@@ -51,6 +51,15 @@ function Main() {
     setTimeout(() => {
       setShowSplash(false);
     }, 3500);
+    fetch("")
+      .then((res) => res.json())
+      .then((response) => {
+        const { memberId, memberCustomUrl } = response;
+        window.localStorage.setItem("memberId", memberId);
+        if (memberCustomUrl) {
+          window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+        }
+      });
   }, []);
 
   return (
