@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Div = styled.div`
-  width: 375px;
-  height: 667px;
+  width: 100%;
+  height: 100vh;
   background: linear-gradient(to top, #1565c0, #2196f3);
   display: flex;
   align-items: center;
