@@ -8,6 +8,21 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  // animation: 0.5s ease-in-out unloadEffect;
+  // animation-direction: reverse;
+  // @keyframes unloadEffect {
+  //   0% {
+  //     transform: translateX(0px);
+  //     opacity: 1;
+  //   }
+  //   100% {
+  //     transform: translateX(-30px);
+  //     opacity: 0;
+  //   }
+  // }
 `;
 const Title = styled.h1`
   color: white;
