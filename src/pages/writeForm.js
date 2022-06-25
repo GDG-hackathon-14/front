@@ -198,9 +198,26 @@ function WriteForm() {
     SendFormData(formData);
   }
   function SendFormData(formData) {
+    var companyId = localStorage.getItem("company");
     fetch("http://localhost:8080/api/profile/1", {
       method: "post",
-      body: formData,
+      body: JSON.stringify({
+        compId: companyId,
+        profileImageUrl: photo,
+        memberName: name,
+        email: email + "@" + domain,
+        phoneNumber: phonenumber,
+        gender: gender,
+        hobby: hobby,
+        deptName: depar,
+        address: home,
+        task: job,
+        position: rank,
+        techSkill: tech,
+        mbti: mbti,
+        links: link,
+        description: text,
+      }),
       headers: {
         "Content-Type": "application/json",
       },

@@ -14,7 +14,12 @@ const PhotoDiv = styled.div`
   margin-bottom: 10px;
   background: linear-gradient(144.01deg, #bbdefb 0%, #e3f2fd 100%); ;
 `;
-
+const Ellipse = styled.img`
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index=-100;
+`;
 const Photo = styled.div`
   background-color: #f1f1f5;
   background-image: ${(props) => props.path};
