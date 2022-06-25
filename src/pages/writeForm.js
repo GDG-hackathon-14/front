@@ -221,7 +221,11 @@ function WriteForm() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => console.log(res));
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+      });
   }
   return (
     <div>
