@@ -71,8 +71,8 @@ function Information({ match }) {
 
   useEffect(() => {
     const code = location.search.split("=")[1];
-    window.localStorage.setItem("memberCustomUrl", "1234");
-    fetch(`//${code}`)
+    window.localStorage.setItem("memberCustomUrl", code);
+    fetch(`http://localhost:8080/api/profile/${code}`)
       .then((res) => res.json())
       .then((response) => {});
   }, [location]);
