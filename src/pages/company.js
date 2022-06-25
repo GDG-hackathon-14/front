@@ -42,6 +42,18 @@ const CompanyName = styled.div`
   font-weight: bold;
 `;
 
+const NextButton = styled.div`
+  width: 90%;
+  border-radius: 10px;
+  background-color: #1565c0;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+`;
+
 function Company() {
   return (
     <Container>
@@ -51,7 +63,7 @@ function Company() {
           야나야
         </div>
         <div style={{ fontSize: 18 }}>회사를 선택해주세요</div>
-        <div style={{ marginTop: 60 }}>
+        <div style={{ marginTop: 20 }}>
           <CompanyBox>
             <CompanyContainer>
               <CompanyImage src="/images/kurly.png" />
@@ -83,6 +95,17 @@ function Company() {
           </CompanyBox>
         </div>
       </Main>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <NextButton onClick={() => {}}>다음으로</NextButton>
+      </div>
     </Container>
   );
 }
