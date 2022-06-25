@@ -70,6 +70,7 @@ function Information({ match }) {
 
   useEffect(() => {
     const code = location.search.split("=")[1];
+    window.localStorage.setItem("memberCustomUrl", "1234");
     fetch(`//${code}`)
       .then((res) => res.json())
       .then((response) => {});
@@ -133,7 +134,8 @@ function Information({ match }) {
       >
         <NextButton
           onClick={() => {
-            navigate("/qrcode");
+            const code = window.localStorage.getItem("memberCustomUrl");
+            navigate(`/qrcode?code=${code}`);
           }}
         >
           QR 코드
