@@ -174,30 +174,7 @@ function WriteForm() {
     setHideemail(e.target.value);
   }
 
-  function CreateFormdata() {
-    var formData = new FormData();
-    var companyId = localStorage.getItem("company");
-    formData.append("compId", companyId);
-    formData.append("profileImageUrl", photo);
-    formData.append("memberName", name);
-    formData.append("email", email + "@" + domain);
-    formData.append("phoneNumber", phonenumber);
-    formData.append("gender", gender);
-    formData.append("hobby", hobby);
-    formData.append("deptName", depar);
-    formData.append("address", home);
-    formData.append("task", job);
-    formData.append("position", rank);
-    formData.append("techSkill", tech);
-    formData.append("mbti", mbti);
-    formData.append("links", link);
-    formData.append("description", text);
-    for (let key of formData.values()) {
-      console.log(key);
-    }
-    SendFormData(formData);
-  }
-  function SendFormData(formData) {
+  function SendFormData() {
     var companyId = localStorage.getItem("company");
     fetch("http://localhost:8080/api/profile/1", {
       method: "post",
@@ -229,7 +206,7 @@ function WriteForm() {
   }
   return (
     <div>
-      <Header title='정보를 알려주세요.'></Header>
+      <Header title="정보를 알려주세요."></Header>
       <MainContainer>
         <PhotoDiv>
           <PhotoTitle>사진</PhotoTitle>
@@ -237,7 +214,7 @@ function WriteForm() {
             src={photo ? photo : `${process.env.PUBLIC_URL}/images/noimg.png`}
           ></Photo>
           <input
-            type='file'
+            type="file"
             style={{ marginLeft: "30%", marginTop: "10px" }}
             onChange={photoChange}
             ref={imgRef}
@@ -245,32 +222,32 @@ function WriteForm() {
         </PhotoDiv>
         <Div>
           <Title>이름</Title>
-          <Input placeholder='홍길동' onChange={nameChange}></Input>
+          <Input placeholder="홍길동" onChange={nameChange}></Input>
         </Div>
         <Div>
           <Title>성별</Title>
-          <Input placeholder='남자' onChange={genderChange}></Input>
+          <Input placeholder="남자" onChange={genderChange}></Input>
         </Div>
         <Div>
           <Title>한줄설명</Title>
           <TextareaInput
             onChange={textChange}
-            maxlength='100'
-            placeholder='세계적인 유망주인 가비(바르셀로나)부터 이미 슈퍼스타가 된 엘링 홀란드(맨체스터 시티), 킬리안 음바페(파리 생제르맹) 등 수많은 선수들이 나열됐다. 29살인 선수 중 몸값 1위도 소개됐는데, 손흥민의 얼굴이 딱 등장했다.'
+            maxlength="100"
+            placeholder="세계적인 유망주인 가비(바르셀로나)부터 이미 슈퍼스타가 된 엘링 홀란드(맨체스터 시티), 킬리안 음바페(파리 생제르맹) 등 수많은 선수들이 나열됐다. 29살인 선수 중 몸값 1위도 소개됐는데, 손흥민의 얼굴이 딱 등장했다."
           ></TextareaInput>
         </Div>
         <EmailDiv>
           <EmailTitle>이메일</EmailTitle>
           <EmailInputDiv>
-            <EmailId onChange={emailChange} placeholder='kkkkkk'></EmailId>
+            <EmailId onChange={emailChange} placeholder="kkkkkk"></EmailId>
             <>@</>
             <Select onChange={domainChange}>
-              <option value=''>직접 입력</option>
-              <option value='naver.com'>naver.com</option>
-              <option value='gmail.com'>gmail.com</option>
-              <option value='daum.net'>daum.net</option>
-              <option value='hanmail.net'>hanmail.net</option>
-              <option value='nate.com'>nate.com</option>
+              <option value="">직접 입력</option>
+              <option value="naver.com">naver.com</option>
+              <option value="gmail.com">gmail.com</option>
+              <option value="daum.net">daum.net</option>
+              <option value="hanmail.net">hanmail.net</option>
+              <option value="nate.com">nate.com</option>
             </Select>
           </EmailInputDiv>
           {domain == "" ? (
@@ -281,20 +258,20 @@ function WriteForm() {
           <Title>연락처</Title>
           <Input
             onChange={phonenumberChange}
-            placeholder='010-9999-9999'
+            placeholder="010-9999-9999"
           ></Input>
         </Div>
         <Div>
           <Title>사는 곳</Title>
-          <Input onChange={homeChange} placeholder='경기도 시흥시'></Input>
+          <Input onChange={homeChange} placeholder="경기도 시흥시"></Input>
         </Div>
         <Div>
           <Title>부서</Title>
-          <Input onChange={deparChange} placeholder='디자인 팀'></Input>
+          <Input onChange={deparChange} placeholder="디자인 팀"></Input>
         </Div>
         <Div>
           <Title>직무</Title>
-          <Input onChange={jobChange} placeholder='UX designer'></Input>
+          <Input onChange={jobChange} placeholder="UX designer"></Input>
         </Div>
         <Div>
           <Title>기술스택</Title>
@@ -302,38 +279,38 @@ function WriteForm() {
             style={inputstyle}
             onItemAdded={(item, allItem) => setTech(allItem)}
             onItemDeleted={(item, allItem) => setTech(allItem)}
-            name='item-input'
-            placeholder='JavaScript, CSS, Python 등..'
+            name="item-input"
+            placeholder="JavaScript, CSS, Python 등.."
           ></MultipleValueTextInput>
         </Div>
         <Div>
           <Title>취미</Title>
-          <Input onChange={hobbyChange} placeholder='탁구, 게임 등...'></Input>
+          <Input onChange={hobbyChange} placeholder="탁구, 게임 등..."></Input>
         </Div>
         <Div>
           <Title>MBTI</Title>
           <Select style={{ width: "100%" }} onChange={mbtiChange}>
-            <option value='INTJ'>INTJ</option>
-            <option value='INTP'>INTP</option>
-            <option value='ENTJ'>ENTJ</option>
-            <option value='ENTP'>ENTP</option>
-            <option value='INFJ'>INFJ</option>
-            <option value='INFP'>INFP</option>
-            <option value='ENFJ'>ENFJ</option>
-            <option value='ENFP'>ENFP</option>
-            <option value='ISTJ'>ISTJ</option>
-            <option value='ISFJ'>ISFJ</option>
-            <option value='ESTJ'>ESTJ</option>
-            <option value='ESFJ'>ESFJ</option>
-            <option value='ISTP'>ISTP</option>
-            <option value='ISFP'>ISFP</option>
-            <option value='ESTP'>ESTP</option>
-            <option value='ESFP'>ESFP</option>
+            <option value="INTJ">INTJ</option>
+            <option value="INTP">INTP</option>
+            <option value="ENTJ">ENTJ</option>
+            <option value="ENTP">ENTP</option>
+            <option value="INFJ">INFJ</option>
+            <option value="INFP">INFP</option>
+            <option value="ENFJ">ENFJ</option>
+            <option value="ENFP">ENFP</option>
+            <option value="ISTJ">ISTJ</option>
+            <option value="ISFJ">ISFJ</option>
+            <option value="ESTJ">ESTJ</option>
+            <option value="ESFJ">ESFJ</option>
+            <option value="ISTP">ISTP</option>
+            <option value="ISFP">ISFP</option>
+            <option value="ESTP">ESTP</option>
+            <option value="ESFP">ESFP</option>
           </Select>
         </Div>
         <Div>
           <Title>직급</Title>
-          <Input onChange={rankChange} placeholder='사원'></Input>
+          <Input onChange={rankChange} placeholder="사원"></Input>
         </Div>
         <Div>
           <Title>링크</Title>
@@ -341,12 +318,12 @@ function WriteForm() {
             style={inputstyle}
             onItemAdded={(item, allItem) => setLink(allItem)}
             onItemDeleted={(item, allItem) => setLink(allItem)}
-            name='item-input1'
-            placeholder='https://wwit.design/2022/05/28/trost/'
+            name="item-input1"
+            placeholder="https://wwit.design/2022/05/28/trost/"
           ></MultipleValueTextInput>
         </Div>
       </MainContainer>
-      <NextButton onClick={CreateFormdata}>다음</NextButton>
+      <NextButton onClick={SendFormData}>다음</NextButton>
     </div>
   );
 }
