@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import MainContainer from "../components/MainContainer";
 import MultipleValueTextInput from "react-multivalue-text-input";
+import { useNavigate } from "react-router-dom";
 
 const Div = styled.div`
   width: 100%;
@@ -134,7 +135,6 @@ function WriteForm() {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setPhoto(reader.result);
-      console.log("이미지주소", reader.result);
     };
   }
   function genderChange(e) {
@@ -192,10 +192,19 @@ function WriteForm() {
     formData.append("mbti", mbti);
     formData.append("links", link);
     formData.append("description", text);
-
-    for (let value of formData.values()) {
-      console.log(value);
+    for (let key of formData.values()) {
+      console.log(key);
     }
+    SendFormData(formData);
+  }
+  function SendFormData(formData) {
+    fetch("http://34.64.143.215:8080/api/profile/1", {
+      method: "post",
+      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }).then((res) => console.log(res));
   }
   return (
     <div>
@@ -204,7 +213,7 @@ function WriteForm() {
         <PhotoDiv>
           <PhotoTitle>사진</PhotoTitle>
           <Photo
-            src={photo ? photo : `${process.env.PUBLIC_URL}/img/noimg.png`}
+            src={photo ? photo : `${process.env.PUBLIC_URL}/images/noimg.png`}
           ></Photo>
           <input
             type="file"

@@ -12,6 +12,7 @@ const PhotoDiv = styled.div`
   flex-direction: column;
   padding: 40px 16px;
   margin-bottom: 10px;
+  background: linear-gradient(144.01deg, #bbdefb 0%, #e3f2fd 100%); ;
 `;
 
 const Photo = styled.div`
@@ -96,7 +97,6 @@ function Information({ match }) {
               ></div>
               <div>{data.email}</div>
             </PhotoDiv>
-
             <div style={{ fontSize: "12px" }}>
               <Title>한줄 설명</Title>
               <div style={{ lineBreak: "pre-line" }}>{data.description}</div>
