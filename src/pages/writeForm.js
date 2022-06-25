@@ -103,6 +103,7 @@ const inputstyle = {
   padding: "10px 0",
   borderBottom: "1px solid #f1f1f5",
 };
+
 function WriteForm() {
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
@@ -121,6 +122,8 @@ function WriteForm() {
   const [rank, setRank] = useState("");
   const [link, setLink] = useState([]);
 
+  const navigate = useNavigate();
+
   const imgRef = useRef();
 
   function nameChange(e) {
@@ -137,39 +140,51 @@ function WriteForm() {
       setPhoto(reader.result);
     };
   }
+
   function genderChange(e) {
     setGender(e.target.value);
   }
+
   function textChange(e) {
     setText(e.target.value);
   }
+
   function emailChange(e) {
     setEmail(e.target.value);
   }
+
   function domainChange(e) {
     setDomain(e.target.value);
   }
+
   function phonenumberChange(e) {
     setPhonenumber(e.target.value);
   }
+
   function homeChange(e) {
     setHome(e.target.value);
   }
+
   function deparChange(e) {
     setDepar(e.target.value);
   }
+
   function jobChange(e) {
     setJob(e.target.value);
   }
+
   function hobbyChange(e) {
     setHobby(e.target.value);
   }
+
   function mbtiChange(e) {
     setMbti(e.target.value);
   }
+
   function rankChange(e) {
     setRank(e.target.value);
   }
+
   function hideemailChange(e) {
     setHideemail(e.target.value);
   }
@@ -201,9 +216,12 @@ function WriteForm() {
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
+        const { memberCustomUrl } = response;
+        window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+        navigate(`/information?code=${memberCustomUrl}`);
       });
   }
+
   return (
     <div>
       <Header title="정보를 알려주세요."></Header>
