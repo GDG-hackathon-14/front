@@ -5,6 +5,7 @@ import Main from "./pages/main";
 import Company from "./pages/company";
 import Qrcode from "./pages/qrcode";
 import WriteForm from "./pages/writeForm";
+import Information from "./pages/infomation";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/company" element={<Company />}></Route>
           <Route path="/qrcode" element={<Qrcode />}></Route>
           <Route path="/write-form" element={<WriteForm />}></Route>
+          <Route path="/information" element={<Information />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
