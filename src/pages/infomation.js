@@ -10,12 +10,13 @@ const PhotoDiv = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 16px;
-  margin-bottom: 20px;
+  padding: 40px 16px;
+  margin-bottom: 10px;
 `;
 
 const Photo = styled.div`
   background-color: #f1f1f5;
+  background-image: ${(props) => props.path};
   width: 100px;
   height: 100px;
   border-radius: 6px;
@@ -82,9 +83,18 @@ function Information({ match }) {
       <MainContainer>
         {data && (
           <>
-            <Title>사진</Title>
             <PhotoDiv>
-              <Photo></Photo>
+              <Photo path={data.profileImageUrl} />
+              <div style={{ marginTop: 10 }}>{data.memberName}</div>
+              <div
+                style={{
+                  margin: "10px 0",
+                  height: 1,
+                  width: "160px",
+                  backgroundColor: "#aaa",
+                }}
+              ></div>
+              <div>{data.email}</div>
             </PhotoDiv>
 
             <div style={{ fontSize: "12px" }}>
