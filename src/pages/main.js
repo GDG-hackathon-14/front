@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Splash from "./splash";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Div = styled.div`
   width: 100%;
@@ -36,7 +37,7 @@ const StartButton = styled.button`
   font-size: 1rem;
   font-weight: 700;
   margin-top: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
   border: none;
 `;
 const ButtonDiv = styled.div`
@@ -51,6 +52,7 @@ function Main() {
       setShowSplash(false);
     }, 3500);
   }, []);
+
   return (
     <Div>
       {showSplash ? <Splash /> : <></>}
@@ -63,7 +65,14 @@ function Main() {
         </Title>
       </TitleDiv>
       <ButtonDiv>
-        <StartButton>시작하기</StartButton>
+        <StartButton>
+          <Link
+            to="/company"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            시작하기
+          </Link>
+        </StartButton>
       </ButtonDiv>
     </Div>
   );

@@ -26,7 +26,7 @@ const Div = styled.div`
 `;
 const Title = styled.h1`
   color: white;
-  font-size: 30px;
+  font-size: 50px;
 `;
 function Splash() {
   return (
