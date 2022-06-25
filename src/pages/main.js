@@ -51,15 +51,25 @@ function Main() {
     setTimeout(() => {
       setShowSplash(false);
     }, 3500);
-    fetch("")
-      .then((res) => res.json())
-      .then((response) => {
-        const { memberId, memberCustomUrl } = response;
-        window.localStorage.setItem("memberId", memberId);
-        if (memberCustomUrl) {
-          window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
-        }
-      });
+    // fetch("")
+    //   .then((res) => res.json())
+    //   .then((response) => {
+    //     const { memberId, memberCustomUrl } = response;
+    //     window.localStorage.setItem("memberId", memberId);
+    //     if (memberCustomUrl) {
+    //       window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+    //     }
+    //   });
+
+    // 로그인 처리
+    const { memberId, memberCustomUrl } = {
+      memberId: "1",
+      memberCustomUrl: "1111",
+    };
+    window.localStorage.setItem("memberId", memberId);
+    if (memberCustomUrl) {
+      window.localStorage.setItem("memberCustomUrl", memberCustomUrl);
+    }
   }, []);
 
   return (
