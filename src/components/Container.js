@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const DefaultContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -9,4 +9,4 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-export default Container;
+export default DefaultContainer;
