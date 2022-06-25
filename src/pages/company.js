@@ -127,7 +127,7 @@ function Company() {
         <NextButton
           onClick={() => {
             if (company) {
-              navigate("/write-form");
+              navigate("/writeform");
               window.localStorage.setItem("company", company);
             }
           }}

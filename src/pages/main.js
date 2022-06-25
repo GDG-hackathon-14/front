@@ -11,7 +11,7 @@ const Div = styled.div`
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ),
-    url("${process.env.PUBLIC_URL}/img/main_background_image.png");
+    url("${process.env.PUBLIC_URL}/images/main_background_image.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -79,11 +79,11 @@ function Main() {
     <Div>
       {showSplash ? <Splash /> : <></>}
       <TitleDiv>
-        <SubTitle>야나야</SubTitle>
+        <SubTitle>야, 나야</SubTitle>
         <Title>
-          대표하는 문구
+          함께 일하는 동료를
           <br />
-          문구문구문구
+          알고 싶을 때
         </Title>
       </TitleDiv>
       <ButtonDiv>
