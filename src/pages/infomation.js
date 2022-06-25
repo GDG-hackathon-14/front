@@ -80,7 +80,9 @@ function Information({ match }) {
     window.localStorage.setItem("memberCustomUrl", code);
     fetch(`http://localhost:8080/api/profile/${code}`)
       .then((res) => res.json())
-      .then((response) => {});
+      .then((response) => {
+        setData(response);
+      });
   }, [location]);
 
   return (
