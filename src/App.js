@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import GlobalStyle from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Product from "./components/Product";
+import Splash from "./pages/splash";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Product />
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Splash />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
