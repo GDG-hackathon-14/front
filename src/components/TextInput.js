@@ -18,6 +18,7 @@ const Input = styled.input`
   padding: 10px 0;
   border-bottom: 1px solid #f1f1f5;
 `;
+
 function TextInput({ title, hint }) {
   return (
     <Div>

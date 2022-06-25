@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 const EmailDiv = styled.div`
   width: 100%;
   padding: 35px 16px 15px 16px;
@@ -33,7 +34,8 @@ const HideInput = styled.input`
   background-color: #f1f1f5;
   margin-top: 5px;
   position: absolute;
-  left: 53%;
+  width: 33%;
+  left: 56%;
 `;
 
 function EmailInput() {
