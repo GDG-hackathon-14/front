@@ -11,9 +11,7 @@ const Title = styled.h1`
 function Company() {
   return (
     <Container>
-      <Header>
-        <div>뒤로가기</div>
-      </Header>
+      <Header title="뒤로가기" />
     </Container>
   );
 }

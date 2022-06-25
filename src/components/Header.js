@@ -20,14 +20,14 @@ const BackButton = styled.div`
   top: 15px;
 `;
 
-const Header = ({ title, children }) => {
+const Header = ({ title }) => {
   const navigate = useNavigate();
   return (
     <CustomHeader>
       <BackButton onClick={() => navigate(-1)}>
         <BiChevronLeft size={30} />
       </BackButton>
-      {children}
+      <div>{title}</div>
     </CustomHeader>
   );
 };
