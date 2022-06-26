@@ -74,7 +74,7 @@ function Information({ match }) {
   });
 
   useEffect(() => {
-    const code = location.search.split("=")[1];
+    const code = location.search.split("?code=")[0];
     window.localStorage.setItem("memberCustomUrl", code);
     fetch(`http://34.64.143.215:8080/api/profile/${code}`)
       .then((res) => res.json())
