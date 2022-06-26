@@ -20,9 +20,7 @@ const Ellipse = styled.img`
   position: absolute;
   z-index=-100;
 `;
-const Photo = styled.div`
-  background-color: #f1f1f5;
-  background-image: ${(props) => props.path};
+const Photo = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 6px;
@@ -92,7 +90,7 @@ function Information({ match }) {
         {data && (
           <>
             <PhotoDiv>
-              <Photo path={data.profileImageUrl} />
+              <Photo src={"/images/github_profile.jpeg"} />
               <div style={{ marginTop: 10 }}>{data.memberName}</div>
               <div
                 style={{
