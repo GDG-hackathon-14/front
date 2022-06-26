@@ -54,7 +54,7 @@ function Main() {
       setShowSplash(false);
     }, 3500);
 
-    fetch("http://localhost:8080/api/member/login", {
+    fetch("http://34.64.143.215:8080/api/member/login", {
       method: "post",
       body: JSON.stringify({
         email: "minah@nate.com",

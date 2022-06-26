@@ -76,10 +76,11 @@ function Information({ match }) {
   useEffect(() => {
     const code = location.search.split("=")[1];
     window.localStorage.setItem("memberCustomUrl", code);
-    fetch(`http://localhost:8080/api/profile/${code}`)
+    fetch(`http://34.64.143.215:8080/api/profile/${code}`)
       .then((res) => res.json())
       .then((response) => {
         setData(response);
+        console.log(response.profileImageUrl);
       });
   }, [location]);
 

@@ -191,7 +191,7 @@ function WriteForm() {
 
   function SendFormData() {
     var companyId = localStorage.getItem("company");
-    fetch("http://localhost:8080/api/profile/1", {
+    fetch("http://34.64.143.215:8080/api/profile/1", {
       method: "post",
       body: JSON.stringify({
         compId: companyId,
